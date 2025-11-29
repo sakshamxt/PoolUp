@@ -3,6 +3,7 @@ import cors from "cors"
 import globalErrorHandler from './controllers/errorController'
 import AppError from './utils/appError'
 import logger from './config/logger'
+import authRouter from './routes/authRoutes.js';
 
 const app = express();
 
@@ -18,6 +19,8 @@ if(process.env.NODE_ENV === 'development') {
         next();
     });
 }
+
+app.use('/api/auth', authRouter);
 
 //routes
 app.get('/api/health', (req, res) => {
