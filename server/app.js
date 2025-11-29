@@ -7,6 +7,8 @@ import authRouter from './routes/authRoutes.js';
 import locationRouter from './routes/locationRoutes.js';
 import userRouter from './routes/userRoutes.js';
 import poolRouter from './routes/poolRoutes.js';
+import feedbackRouter from './routes/feedbackRoutes.js';
+import chatRouter from './routes/chatRoutes.js';
 
 const app = express();
 
@@ -27,6 +29,8 @@ app.use('/api/auth', authRouter);
 app.use('/api/locations', locationRouter);
 app.use('/api/user', userRouter);
 app.use('/api/pools', poolRouter);
+app.use('/api/feedback', feedbackRouter);
+app.use('/api/chat', chatRouter);
 
 //routes
 app.get('/api/health', (req, res) => {
