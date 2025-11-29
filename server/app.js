@@ -4,6 +4,8 @@ import globalErrorHandler from './controllers/errorController'
 import AppError from './utils/appError'
 import logger from './config/logger'
 import authRouter from './routes/authRoutes.js';
+import locationRouter from './routes/locationRoutes.js';
+import userRouter from './routes/userRoutes.js';
 
 const app = express();
 
@@ -21,6 +23,8 @@ if(process.env.NODE_ENV === 'development') {
 }
 
 app.use('/api/auth', authRouter);
+app.use('/api/locations', locationRouter);
+app.use('/api/user', userRouter);
 
 //routes
 app.get('/api/health', (req, res) => {
