@@ -5,9 +5,9 @@ import mongoSanitize from 'express-mongo-sanitize';
 import rateLimit from 'express-rate-limit';
 import hpp from 'hpp';
 
-import globalErrorHandler from './controllers/errorController'
-import AppError from './utils/appError'
-import logger from './config/logger'
+import { globalErrorHandler } from './controllers/errorController.js'
+import AppError from './utils/appError.js'
+import logger from './config/logger.js'
 
 import authRouter from './routes/authRoutes.js';
 import locationRouter from './routes/locationRoutes.js';
@@ -74,7 +74,7 @@ app.get('/api/health', (req, res) => {
 });
 
 app.all('*', (req, res, next) => {
-    next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
+  next(new AppError(`Can't find ${req.originalUrl} on this server!`, 404));
 });
 
 app.use(globalErrorHandler);

@@ -1,5 +1,5 @@
-import logger from '../config/logger';
-import AppError from '../utils/appError';
+import logger from '../config/logger.js';
+import AppError from '../utils/appError.js';
 
 const sendErrorDev = (err, res) => {
   res.status(err.statusCode).json({
@@ -74,7 +74,7 @@ const handleJWTExpiredError = () =>
 /**
  * Global Error Handling Middleware.
  */
-module.exports = (err, req, res, next) => {
+export const globalErrorHandler = (err, req, res, next) => {
   // Default status code and status
   err.statusCode = err.statusCode || 500;
   err.status = err.status || 'error';
